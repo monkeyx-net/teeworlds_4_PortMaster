@@ -94,7 +94,7 @@ jobs:
           mkdir build
           cd build
           cmake ..
-          cmake
+          make
 
       - name: Strip and package binary
         run: |
