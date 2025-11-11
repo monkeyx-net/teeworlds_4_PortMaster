@@ -17,6 +17,12 @@ source $controlfolder/control.txt
 [ -f "${controlfolder}/mod_${CFW_NAME}.txt" ] && source "${controlfolder}/mod_${CFW_NAME}.txt"
 get_controls
 
+if [ "$LIBGL_FB" != "" ]; then
+export SDL_VIDEO_GL_DRIVER="$GAMEDIR/gl4es/libGL.so.1"
+export SDL_VIDEO_EGL_DRIVER="$GAMEDIR/gl4es/libEGL.so.1"
+fi
+
+
 GAMEBINARY=teeworlds
 GAMEDIR=/$directory/ports/$GAMEBINARY
 exec > >(tee "$GAMEDIR/log.txt") 2>&1
